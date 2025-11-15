@@ -1,0 +1,20 @@
+body {
+
+}
+
+
+.side-bar {
+	/* border-right: 2px solid red; */
+	/* height: 100vh; */
+	text-decoration: none;
+	list-style: none;
+	text-align: start;
+	padding: 0px 0px 30px 0px;
+
+}
+.side-bar ul li {
+	list-style: none;
+	border-bottom: 2px solid red;
+	text-align: start !important;
+	width: 200px;
+}
