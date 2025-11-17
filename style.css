@@ -1,20 +1,271 @@
-body {
+:root{
+  --bg-dark: #0d0f13;
+  --panel-dark: #0f1418;
+  --muted: #9aa4ac;
+  --text: #e6eef3;
+  --green: #04d462;
+  --green-bright: #12ff7a;
+  --accent: rgba(4,212,98,0.12);
+  --glass: rgba(255,255,255,0.03);
 
+  --radius: 12px;
+  --card-radius: 14px;
+  --max-width: 1200px;
+
+  --container-padding: 1.25rem;
+  --transition: 220ms cubic-bezier(.2,.9,.3,1);
+  --shadow: 0 6px 30px rgba(2,6,8,0.6);
+  --glow: 0 6px 30px rgba(4,212,98,0.08);
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  --ui-font: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+   
+html,body{
+  height:100%;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0b0d 100%);
+  color:var(--text);
+  font-family: var(--ui-font);
+  font-size:15.5px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.65;
+  overflow-x: hidden;
+}
+
+/* .docs-wrapper{
+  min-height:100vh;
+  padding-top:1.25rem;
+  padding-bottom:1.25rem;
+} */
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--green));
+  border-radius: 2px;
+  margin-top: 20px;
+  animation: underlineMove 4s ease-in-out infinite;
+}
+@keyframes underlineMove {
+  0%,100% { width: 190px; }
+  50% { width: 100px; }
 }
 
 
-.side-bar {
-	/* border-right: 2px solid red; */
-	/* height: 100vh; */
-	text-decoration: none;
-	list-style: none;
-	text-align: start;
-	padding: 0px 0px 30px 0px;
-
+/* .sidebar-area{ 
+  min-height:100vh;
+  padding:0;
+} */
+.dark-sidebar{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+  border-right: 2px solid rgba(221, 216, 216, 0.03);
+  height:100vh;
+  width: 300px;
+  position: fixed;
+  /* top:0; */
+  /* overflow:auto; */
+  box-shadow: var(--shadow);
+  padding:1.6rem;
 }
+@media  (min-width: 1024px ) {
+	.dark-sidebar {
+		width: 250px;
+	}
+}
+.dark-sidebar h3{
+  color: var(--green-bright);
+  letter-spacing: 0.6px;
+  font-size:1.05rem;
+}
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .side-bar ul li {
 	list-style: none;
 	border-bottom: 2px solid red;
 	text-align: start !important;
 	width: 200px;
+}
+/* Sidebar nav */
+.sidebar-nav ul{
+  padding-left:0;
+  margin-top:0.6rem;
+}
+.sidebar-nav a.nav-link{
+  display:block;
+  padding:0.6rem 0.65rem;
+  color:var(--muted);
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  transition: all var(--transition);
+}
+.sidebar-nav a.nav-link:hover{
+  color:var(--text);
+  background: linear-gradient(90deg, rgba(4,212,98,0.03), transparent);
+  box-shadow: var(--glow);
+  transform: translateX(4px);
+}
+.sidebar-nav a.nav-link.active,
+.sidebar-nav a.nav-link:focus{
+  background: linear-gradient(90deg, rgba(4,212,98,0.06), rgba(4,212,98,0.02));
+  color: var(--green-bright);
+  box-shadow: 0 8px 30px rgba(4,212,98,0.08);
+  border-left: 3px solid rgba(4,212,98,0.95);
+  padding-left: 0.55rem;
+}
+
+/* Smaller screens - offcanvas body list */
+.offcanvas .nav-link{
+  padding:0.5rem 0;
+  color:var(--text);
+}
+
+/* ----------------------------
+   Top controls & search
+   ---------------------------- */
+.btn-green{
+  background: linear-gradient(180deg, var(--green) 0%, var(--green-bright) 100%);
+  border: none;
+  color: #03110a;
+  font-weight:700;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(4,212,98,0.08);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.btn-green:hover{ transform: translateY(-2px); box-shadow: 0 12px 40px rgba(4,212,98,0.12); }
+
+/* Search input overrides */
+.form-control.bg-dark{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  color:var(--text);
+  border-radius:8px;
+  padding:0.6rem 0.75rem;
+}
+.form-control.bg-dark::placeholder{ color: rgba(255,255,255,0.25); }
+/* ----------------------------
+   Content area and sections
+   ---------------------------- */
+.content-section{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding:1.35rem;
+  margin-bottom:1.2rem;
+  border-radius: var(--card-radius);
+  box-shadow: 0 12px 40px rgba(2,6,8,0.55);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.content-section:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(2,6,8,0.6);
+}
+/* Section headings */
+.content-section h1,
+.content-section h3{
+  color:var(--green-bright);
+  margin-bottom:0.6rem;
+}
+.content-section p.lead{
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* ------------------------------- */
+/* Generic text */
+p, li {
+  color:var(--text);
+}
+a { color: var(--green-bright); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Lists (feature lists, code) */
+.content-section ul{ padding-left:1.1rem; }
+.content-section li{ margin-bottom:0.5rem; }
+/* ------------------------------- */
+
+/* ----------------------------
+   Code blocks, inline code, and pre
+   ---------------------------- */
+pre, code {
+  font-family: var(--mono);
+  background: rgba(0,0,0,0.22);
+  color: #dfffe6;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.92rem;
+}
+pre{
+  padding:1rem;
+  overflow:auto;
+  border-left: 4px solid rgba(4,212,98,0.06);
+}
+
+/* Code block title / badge */
+.code-badge{
+  display:inline-block;
+  font-family: var(--mono);
+  padding:0.18rem 0.45rem;
+  border-radius:6px;
+  background: rgba(4,212,98,0.06);
+  color:var(--green-bright);
+  font-weight:700;
+  font-size:0.82rem;
+  margin-bottom:0.6rem;
+}
+/* ----------------------------
+   Tables & callouts
+   ---------------------------- */
+.table-docs{
+  width:100%; border-collapse: collapse;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.table-docs th, .table-docs td{
+  padding:0.75rem 1rem;
+  color:var(--text);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.table-docs thead th{
+  color:var(--green-bright);
+  background: rgba(4,212,98,0.02);
+  font-weight:700;
+}
+
+/* Callout boxes */
+.callout{
+  border-left: 4px solid var(--green);
+  background: rgba(4,212,98,0.02);
+  padding:0.9rem;
+  border-radius:8px;
+  color:var(--text);
+  margin-bottom:1rem;
+}
+/* ----------------------------
+   Example: inline player placeholder
+   ---------------------------- */
+.spartex-player-placeholder{
+  background: linear-gradient(180deg, rgba(2,6,8,0.5), rgba(255,255,255,0.02));
+  border: 1px dashed rgba(255,255,255,0.03);
+  min-height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 12px;
+  color: var(--muted);
+}
+
+/* ----------------------------
+   Footer / small UI niceties
+   ---------------------------- */
+footer{
+  color:var(--muted);
+  padding:1.25rem;
+  text-align:center;
 }
