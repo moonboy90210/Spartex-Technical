@@ -16,9 +16,9 @@
 <body>
 	<header>
 		<nav class="navbar d-lg-none px-4 px-md-5 py-3 py-md-4 py-lg-0 fixed-top">
-			<div class="mobile-header">
-				<h2 class="text-uppercase fw-bold">Spartex</h2>
-			</div>
+
+			<h2 class="text-uppercase fw-bold m-0">Spartex</h2>
+
 			<button class="btn btn-outline-green" type="button" data-bs-toggle="offcanvas"
 				data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive" title="Menu">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"
@@ -55,36 +55,27 @@
 
 
 						<!-- Mobile offcanvas -->
-						<div class="offcanvas offcanvas-start text-bg-dark" data-bs-scroll="true" tabindex="-1"
+						<div class="offcanvas offcanvas-start text-bg-dark w-auto" data-bs-scroll="true" tabindex="-1"
 							id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
 							<div class="offcanvas-header">
-								<h5 class="offcanvas-title text-success" id="offcanvasResponsiveLabel">Spartex Documentation
+								<h5 class="offcanvas-title text-green pe-5" id="offcanvasResponsiveLabel">Spartex
+									Documentation
 								</h5>
 								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
 									data-bs-target="#offcanvasResponsive" aria-label="Close"></button>
 							</div>
-							<div class="offcanvas-body">
+							<div class="offcanvas-body" data-bs-dismiss="offcanvas">
 								<ul class="list-unstyled">
-									<li><a href="#intro" class="nav-link" data-bs-dismiss="offcanvas">Introduction</a>
-									</li>
-									<li><a href="#architecture" class="nav-link"
-											data-bs-dismiss="offcanvas">Architecture</a></li>
-									<li><a href="#getting-started" class="nav-link" data-bs-dismiss="offcanvas">Getting
-											Started</a></li>
-									<li><a href="#streaming" class="nav-link" data-bs-dismiss="offcanvas">Streaming
-											Setup</a></li>
-									<li><a href="#player" class="nav-link" data-bs-dismiss="offcanvas">Player
-											Integration</a></li>
-									<li><a href="#sdk" class="nav-link">Spartex.js
-											SDK</a></li>
-									<li><a href="#webhooks" class="nav-link" data-bs-dismiss="offcanvas">Webhooks</a>
-									</li>
-									<li><a href="#security" class="nav-link" data-bs-dismiss="offcanvas">Security</a>
-									</li>
-									<li><a href="#analytics" class="nav-link" data-bs-dismiss="offcanvas">Analytics</a>
-									</li>
-									<li><a href="#support" class="nav-link" data-bs-dismiss="offcanvas">Support</a>
-									</li>
+									<li><a href="#intro" class="nav-link">Introduction</a></li>
+									<li><a href="#architecture" class="nav-link">Architecture</a></li>
+									<li><a href="#getting-started" class="nav-link">Getting Started</a></li>
+									<li><a href="#streaming" class="nav-link">Streaming Setup</a></li>
+									<li><a href="#player" class="nav-link">Player Integration</a></li>
+									<li><a href="#sdk" class="nav-link">Spartex.js SDK</a></li>
+									<li><a href="#webhooks" class="nav-link">Webhooks</a></li>
+									<li><a href="#security" class="nav-link">Security</a></li>
+									<li><a href="#analytics" class="nav-link">Analytics</a></li>
+									<li><a href="#support" class="nav-link">Support</a></li>
 								</ul>
 							</div>
 						</div>
@@ -104,7 +95,7 @@
 						<!-- Introduction -->
 						<section id="intro" class="content-section my-5">
 							<h3 class="fw-bold text-green">Welcome to Spartex Technical Documentation</h3>
-		
+
 							<div class="underline mb-3" aria-hidden="true"></div>
 
 							<p class="lead">Developer-focused resources for streaming, broadcasting, and integration.
@@ -310,8 +301,8 @@ autoplay: false
 		integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
 		crossorigin="anonymous"></script>
 
-		<!-- scroll not tested with this layout yet -->
-<!-- <script>
+	<!-- scroll not tested with this layout yet -->
+	<!-- <script>
 document.addEventListener("DOMContentLoaded", () => {
     const nav = document.querySelector("nav.navbar.d-lg-none");
     let lastScroll = window.scrollY;
